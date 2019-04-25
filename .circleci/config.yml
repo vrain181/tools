@@ -7,8 +7,7 @@ jobs:
       - run:
           command: echo "Build And Push Docker Image"
   build:
-    docker:
-      - image: hashicorp/terraform
+    machine: true
     steps:
       - checkout
       - setup_remote_docker:
