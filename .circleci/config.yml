@@ -1,0 +1,31 @@
+version: 2.1
+jobs:
+  trigger:
+    docker:
+      - image: alpine:3.9
+    steps:
+      - run:
+          command: echo "Build And Push Docker Image"
+  build:
+    docker:
+      - image: hashicorp/terraform
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Build docker image
+          command: |
+            docker build -t salvax86/tools:${CIRCLE_BRANCH}
+            docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
+            docker push salvax86/tools:${CIRCLE_BRANCH}
+workflows:
+  version: 2
+  init_plan_apply:
+    jobs:
+      - trigger:
+          type: approval
+      - build:
+          requires:
+            - trigger
+
