@@ -11,21 +11,22 @@ jobs:
       - image: circleci/python:2-jessie
     steps:
       - checkout
+
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
-        name: Install GOSS
-        command: |
-          mkdir ~/bin
-          export GOSS_DST=~/bin
-          export PATH=$PATH:~/bin
-          curl -fsSL https://goss.rocks/install | sh
-          goss -version
+          name: Install GOSS
+          command: |
+            mkdir ~/bin
+            export GOSS_DST=~/bin
+            export PATH=$PATH:~/bin
+            curl -fsSL https://goss.rocks/install | sh
+            goss -version
       - run:
-        name: Build and Test docker image
-        command: |
-          docker build -t salvax86/tools:${CIRCLE_BRANCH} --build-arg ansible_version=2.7.10 --build-arg terraform_version=0.11.3 --build-arg awscli_version=1.16.145 .
-          GOSS_FILES_PATH=test dgoss run -it salvax86/tools:${CIRCLE_BRANCH}
+          name: Build and Test docker image
+          command: |
+            docker build -t salvax86/tools:${CIRCLE_BRANCH} --build-arg ansible_version=2.7.10 --build-arg terraform_version=0.11.3 --build-arg awscli_version=1.16.145 .
+            GOSS_FILES_PATH=test dgoss run -it salvax86/tools:${CIRCLE_BRANCH}
 workflows:
   version: 2
   init_plan_apply:
