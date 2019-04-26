@@ -13,7 +13,7 @@ jobs:
       - run:
           name: Build and Test
           command: |
-            mkdir ~/bin
+            mkdir -p ~/bin
             export GOSS_DST=~/bin
             export PATH=$PATH:~/bin
             curl -fsSL https://goss.rocks/install | sh
