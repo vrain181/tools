@@ -28,4 +28,4 @@ COPY script/ /tmp
 
 RUN chmod +x ${SCRIPT_MAIN}
 
-CMD ["sh +x ${SCRIPT_MAIN}", "/bin/sh"]
+CMD sh +x ${SCRIPT_MAIN}; /bin/sh
