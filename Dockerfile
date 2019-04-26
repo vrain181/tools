@@ -10,20 +10,22 @@ ENV TERRAFORM_VERSION=${terraform_version:-0.11.3}
 ENV ANSIBLE_VERSION=${ansible_version:-2.7.10}
 ENV AWSCLI_VERSION=${awscli_version:-1.16.145}
 
+ENV SCRIPT_MAIN='/tmp/main_script.sh'
+ENV SCRIPT_LOCATION='/tmp/script/script.sh'
+
 LABEL maintainer="salvatore181@gmail.com"
 
 RUN set -xe && \
     apk update && \
-
-    ## install base
-    apk add --no-cache --purge -uU sudo curl ca-certificates openssh-client unzip && \
-    apk --update add --virtual .build-dependencies python-dev python py-pip libffi-dev openssl-dev build-base && \
-
-    ## install ansible and awscli
+    apk add --no-cache --purge -uU sudo curl ca-certificates openssh-client unzip\
+            python-dev python py-pip libffi-dev openssl-dev build-base && \
     pip install --no-cache --upgrade ansible==${ANSIBLE_VERSION} awscli==${AWSCLI_VERSION} && \
-    apk del --purge .build-dependencies && \
-
-    ## install terraform
     wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
     unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
     mv terraform /usr/local/bin
+
+COPY script/ /tmp
+
+RUN chmod +x ${SCRIPT_MAIN}
+
+CMD ["sh +x ${SCRIPT_MAIN}", "/bin/sh"]
