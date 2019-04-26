@@ -1,0 +1,28 @@
+version: 2.1
+jobs:
+  trigger:
+    docker:
+      - image: alpine:3.9
+    steps:
+      - run:
+          command: echo "Build And Push Docker Image"
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Build docker image
+          command: |
+            docker build -t salvax86/tools:${CIRCLE_BRANCH} --build-arg ansible_version=2.7.10 --build-arg terraform_version=0.11.3 --build-arg awscli_version=1.16.145 .
+            echo "${DOCKER_PASSWORD}" | docker login -u ${DOCKER_LOGIN} --password-stdin
+            docker push salvax86/tools:${CIRCLE_BRANCH}
+workflows:
+  version: 2
+  init_plan_apply:
+    jobs:
+      - trigger:
+          type: approval
+      - build:
+          requires:
+            - trigger
+
