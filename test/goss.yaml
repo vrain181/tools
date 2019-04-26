@@ -1,0 +1,30 @@
+file:
+  /tmp/main_script.sh:
+    exists: true
+    mode: "0755"
+    size: 79
+    owner: root
+    group: root
+    filetype: file
+    contains: []
+  /tmp/script/main_script.sh:
+    exists: false
+    contains: []
+command:
+  ansible --version:
+    exit-status: 0
+    stdout:
+      - ansible 2.7.10
+      - config file = None
+      - configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+      - ansible python module location = /usr/lib/python2.7/site-packages/ansible
+      - executable location = /usr/bin/ansible
+      - python version = 2.7.15 (default, Jan 24 2019, 16:32:39) [GCC 8.2.0]
+    stderr: []
+    timeout: 10000
+  terraform --version:
+    exit-status: 0
+    stdout:
+      - Terraform v0.11.13
+    stderr: []
+    timeout: 10000

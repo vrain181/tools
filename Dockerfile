@@ -6,7 +6,7 @@ ARG ansible_version
 ARG awscli_version
 ARG terraform_version
 
-ENV TERRAFORM_VERSION=${terraform_version:-0.11.3}
+ENV TERRAFORM_VERSION=${terraform_version:-0.11.13}
 ENV ANSIBLE_VERSION=${ansible_version:-2.7.10}
 ENV AWSCLI_VERSION=${awscli_version:-1.16.145}
 
