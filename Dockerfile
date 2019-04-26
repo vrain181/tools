@@ -15,6 +15,8 @@ ENV SCRIPT_LOCATION='/tmp/script/script.sh'
 
 LABEL maintainer="salvatore181@gmail.com"
 
+COPY script/ /tmp
+
 RUN set -xe && \
     apk update && \
     apk add --no-cache --purge -uU sudo curl ca-certificates openssh-client unzip\
@@ -22,10 +24,7 @@ RUN set -xe && \
     pip install --no-cache --upgrade ansible==${ANSIBLE_VERSION} awscli==${AWSCLI_VERSION} && \
     wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
     unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
-    mv terraform /usr/local/bin
-
-COPY script/ /tmp
-
-RUN chmod +x ${SCRIPT_MAIN}
+    mv terraform /usr/local/bin && \
+    chmod +x ${SCRIPT_MAIN}
 
 CMD sh +x ${SCRIPT_MAIN}; /bin/sh
