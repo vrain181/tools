@@ -1,6 +1,8 @@
 tools
 ===
 
+[![CircleCI](https://circleci.com/gh/vrain181/tools/tree/master.svg?style=svg)](https://circleci.com/gh/vrain181/tools/tree/master)
+
 Development Tools
 ---
 
