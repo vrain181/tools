@@ -24,7 +24,5 @@ command:
     timeout: 20000
   terraform --version:
     exit-status: 0
-    stdout:
-      - Terraform v0.11.13
     stderr: []
     timeout: 20000
