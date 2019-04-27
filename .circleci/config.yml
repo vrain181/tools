@@ -6,8 +6,9 @@ jobs:
     steps:
       - run:
           command: echo "Build And Push Docker Image"
-  docker:
-    - image: circleci/python:2-jessie
+  build:
+    docker:
+      - image: circleci/python:2-jessie
     steps:
       - checkout
       - setup_remote_docker:
