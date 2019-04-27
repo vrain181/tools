@@ -21,10 +21,10 @@ command:
       - executable location = /usr/bin/ansible
       - python version = 2.7.15 (default, Jan 24 2019, 16:32:39) [GCC 8.2.0]
     stderr: []
-    timeout: 10000
+    timeout: 20000
   terraform --version:
     exit-status: 0
     stdout:
       - Terraform v0.11.13
     stderr: []
-    timeout: 10000
+    timeout: 20000
