@@ -1,7 +1,7 @@
 ARG alpine_version
 ARG golang_version
 
-FROM ${golang_version:-1.12}-alpine${alpine_version:-3.9}
+FROM golang:${golang_version:-1.12}-alpine${alpine_version:-3.9}
 
 ARG ansible_version
 ARG awscli_version
