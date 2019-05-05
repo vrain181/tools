@@ -1,7 +1,8 @@
 tools
 ===
 
-[![CircleCI](https://circleci.com/gh/vrain181/tools/tree/master.svg?style=svg)](https://circleci.com/gh/vrain181/tools/tree/master)
+[![CircleCI](https://img.shields.io/circleci/project/github/vrain181/tools/master.svg?style=plastic)](https://circleci.com/gh/vrain181/tools/tree/master)
+[![Automated](https://img.shields.io/docker/automated/salvax86/tools.svg?style=plastic)](https://cloud.docker.com/repository/docker/salvax86/tools)
 
 Development Tools
 ---
