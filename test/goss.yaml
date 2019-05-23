@@ -19,7 +19,7 @@ command:
       - configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
       - ansible python module location = /usr/lib/python2.7/site-packages/ansible
       - executable location = /usr/bin/ansible
-      - python version = 2.7.15 (default, Jan 24 2019, 16:32:39) [GCC 8.2.0]
+      - python version = 3.6.8 (default, Apr  8 2019, 18:17:52) [GCC 8.3.0]
     stderr: []
     timeout: 20000
   terraform --version:
