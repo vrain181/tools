@@ -26,7 +26,7 @@ jobs:
           command: |
             export PATH=$PATH:~/bin
             export GOSS_FILES_STRATEGY=cp
-            docker build -t salvax86/tools:${CIRCLE_BRANCH} --build-arg ansible_version=2.7.10 --build-arg terraform_version=0.11.3 --build-arg awscli_version=1.16.145 .
+            docker build -t salvax86/tools:${CIRCLE_BRANCH} --build-arg ansible_version=2.8.0 --build-arg terraform_version=0.12.0 --build-arg awscli_version=1.16.164 .
             GOSS_FILES_PATH=test dgoss run -it salvax86/tools:${CIRCLE_BRANCH}
       - store_test_results:
           path: reports
