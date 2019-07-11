@@ -7,9 +7,9 @@ ARG ansible_version
 ARG awscli_version
 ARG terraform_version
 
-ENV TERRAFORM_VERSION=${terraform_version:-0.12.0}
-ENV ANSIBLE_VERSION=${ansible_version:-2.8.0}
-ENV AWSCLI_VERSION=${awscli_version:-1.16.164}
+ENV TERRAFORM_VERSION=${terraform_version:-0.12.3}
+ENV ANSIBLE_VERSION=${ansible_version:-2.8.2}
+ENV AWSCLI_VERSION=${awscli_version:-1.16.196}
 
 ENV SCRIPT_MAIN='/tmp/main_script.sh'
 ENV SCRIPT_LOCATION='/tmp/script/script.sh'
@@ -27,7 +27,7 @@ RUN set -xe && \
             python3-dev python3 libffi-dev openssl-dev git vim build-base && \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
-    pip3 install --upgrade pip setuptools && \
+    pip3 install --upgrade boto3 pip setuptools && \
     if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
     if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
     pip install --no-cache --upgrade ansible==${ANSIBLE_VERSION} awscli==${AWSCLI_VERSION} && \
