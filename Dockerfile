@@ -7,9 +7,9 @@ ARG ansible_version
 ARG awscli_version
 ARG terraform_version
 
-ENV TERRAFORM_VERSION=${terraform_version:-0.12.3}
-ENV ANSIBLE_VERSION=${ansible_version:-2.8.2}
-ENV AWSCLI_VERSION=${awscli_version:-1.16.196}
+ENV TERRAFORM_VERSION=${terraform_version:-0.12.8}
+ENV ANSIBLE_VERSION=${ansible_version:-2.8.4}
+ENV AWSCLI_VERSION=${awscli_version:-1.16.235}
 
 ENV SCRIPT_MAIN='/tmp/main_script.sh'
 ENV SCRIPT_LOCATION='/tmp/script/script.sh'
