@@ -31,7 +31,7 @@ RUN set -xe && \
     dpkg-reconfigure locales && \
     apt-get install -y sudo curl ca-certificates openssh-client unzip\
             python3-dev python3 libffi-dev openssl git vim build-essential\
-            python3-pip python3-setuptools python3.7-venv openjdk-8-jdk && \
+            python3-pip python3-setuptools python3.7-venv && \
     pip3 install --upgrade boto3 pip setuptools && \
     if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
     if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
@@ -41,6 +41,10 @@ RUN set -xe && \
     rm -f terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
     mv terraform /usr/local/bin && \
     rm -r /root/.cache && \
-    chmod +x ${SCRIPT_MAIN}
+    chmod +x ${SCRIPT_MAIN} && \
+    wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - && \
+    add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ && \
+    apt update && \
+    apt install adoptopenjdk-8-hotspot
 
 CMD sh +x ${SCRIPT_MAIN}; /bin/sh
