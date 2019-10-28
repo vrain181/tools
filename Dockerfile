@@ -15,10 +15,6 @@ ENV SCRIPT_MAIN='/tmp/main_script.sh'
 ENV SCRIPT_LOCATION='/tmp/script/script.sh'
 ENV EC2_INI_PATH "/etc/ansible/ec2.ini"
 
-#locale
-ENV LC_ALL="en_US.UTF-8"
-ENV LC_CTYPE="en_US.UTF-8"
-
 LABEL maintainer="salvatore181@gmail.com"
 
 COPY script/ /tmp
@@ -27,8 +23,6 @@ COPY ec2/ /etc/ansible/ec2
 
 RUN set -xe && \
     apt-get update && \
-    apt-get install -y locales && \
-    dpkg-reconfigure locales && \
     apt-get install -y sudo curl ca-certificates openssh-client unzip\
             python3-dev python3 libffi-dev openssl git vim build-essential\
             python3-pip python3-setuptools software-properties-common && \
