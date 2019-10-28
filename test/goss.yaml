@@ -14,7 +14,7 @@ command:
   ansible --version:
     exit-status: 0
     stdout:
-      - ansible 2.8.0
+      - ansible 2.8.6
       - config file = None
       - configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
       - ansible python module location = /usr/lib/python3.6/site-packages/ansible
