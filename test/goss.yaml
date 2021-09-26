@@ -14,27 +14,27 @@ command:
   ansible --version:
     exit-status: 0
     stdout:
-      - ansible [core 2.11.5]
-      - config file = None
-      - configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-      - ansible python module location = /usr/lib/python3.9/site-packages/ansible
-      - ansible collection location = /root/.ansible/collections:/usr/share/ansible/collections
-      - executable location = /usr/bin/ansible
-      - python version = 3.9.5 (default, May 12 2021, 20:44:22) [GCC 10.3.1 20210424]
-      - jinja version = 3.0.1
-      - libyaml = False
+    - ansible [core 2.11.5]
+    - config file = None
+    - configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+    - ansible python module location = /usr/local/lib/python3.8/dist-packages/ansible
+    - ansible collection location = /root/.ansible/collections:/usr/share/ansible/collections
+    - executable location = /usr/local/bin/ansible
+    - python version = 3.8.10 (default, Jun  2 2021, 10:49:15) [GCC 9.4.0]
+    - jinja version = 3.0.1
+    - libyaml = True
     stderr: []
-    timeout: 20000
+    timeout: 10000
   terraform --version:
     exit-status: 0
-    stderr: []
-    timeout: 20000
     stdout:
       - Terraform v1.0.7
       - on linux_amd64
+    stderr: []
+    timeout: 10000
   aws --version:
     exit-status: 0
-    stderr: []
-    timeout: 20000
     stdout:
-      -
+      - aws-cli/2.2.41 Python/3.8.8 Linux/5.10.47-linuxkit exe/x86_64.ubuntu.20 prompt/off
+    stderr: []
+    timeout: 10000
