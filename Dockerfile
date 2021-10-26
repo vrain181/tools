@@ -1,7 +1,7 @@
 ARG ubuntu_version
 ARG golang_version
 
-#aws cli needs linux/x86_64
+#aws cli needs linux/x86_64 if you run docker build from ARM-based server
 FROM --platform=linux/x86_64 ubuntu:focal-${ubuntu_version:-20210827}
 
 ARG ansible_version
