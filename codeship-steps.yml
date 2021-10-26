@@ -1,0 +1,13 @@
+- type: serial
+  service: adddocker
+  tag: "master"
+  steps:
+    - command: mkdir -p ~/bin
+    - command: export GOSS_DST=~/bin
+    - command: export PATH=$PATH:~/bin
+    - command: curl -fsSL https://goss.rocks/install | sh
+    - command: goss -version
+    - command: export PATH=$PATH:~/bin
+    - command: export GOSS_FILES_STRATEGY=cp
+    - command: docker build -t salvax86/tools:latest .
+    - command: GOSS_FILES_PATH=test dgoss run -it salvax86/tools:latest

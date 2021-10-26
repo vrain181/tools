@@ -1,0 +1,3 @@
+adddocker:
+  image: docker:stable-dind
+  add_docker: true
