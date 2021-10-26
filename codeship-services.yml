@@ -1,3 +1,7 @@
 adddocker:
   image: docker:stable-dind
   add_docker: true
+  environment:
+    - GOSS_DST=~/bin
+    - PATH=$PATH:~/bin
+    - GOSS_FILES_STRATEGY=cp
