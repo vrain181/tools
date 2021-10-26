@@ -24,7 +24,7 @@ command:
     - jinja version = 3.0.1
     - libyaml = True
     stderr: []
-    timeout: 10000
+    timeout: 12000
   terraform --version:
     exit-status: 0
     stdout:
