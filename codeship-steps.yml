@@ -2,7 +2,8 @@
   service: adddocker
   tag: "master"
   steps:
-    #- command: mkdir -p ~/bin
+    - command: apk --update add bash make docker
+    - command: mkdir -p ~/bin
     - command: curl -fsSL https://goss.rocks/install | sh
     - command: goss -version
     - command: docker build -t salvax86/tools:latest .
