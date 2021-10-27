@@ -2,8 +2,7 @@
   service: adddocker
   tag: "master"
   steps:
-    - command: echo "$PATH"
-    - command: apk --update add bash make docker
+    - command: apk --update add curl bash make docker
     - command: mkdir -p ~/bin
     - command: curl -fsSL https://goss.rocks/install | sh
     - command: export PATH=$PATH:~/bin
