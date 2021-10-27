@@ -1,5 +1,5 @@
 adddocker:
-  image: docker:stable-dind
+  image: docker:dind-rootless
   add_docker: true
   environment:
     - GOSS_DST=~/bin
