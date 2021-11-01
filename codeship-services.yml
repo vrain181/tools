@@ -1,3 +1,5 @@
-adddocker:
-  image: gcr.io/gcp-runtimes/container-structure-test:latest
-  add_docker: true
+builder:
+  build:
+    image: salvax86/tools
+    dockerfile: Dockerfile
+  cached: true

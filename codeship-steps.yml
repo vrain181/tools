@@ -1,6 +1,4 @@
-- type: serial
-  service: adddocker
-  tag: "master"
-  steps:
-    - command: docker build -t salvax86/tools:latest .
-    - command: container-structure-test test --image salvax86/tools --config test/tests.yaml
+- name: build-image
+  service: builder
+  command: echo "build image"
+  tag: master
