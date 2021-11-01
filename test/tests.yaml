@@ -24,4 +24,4 @@ commandTests:
   - name: aws version
     command: aws
     args: ["--version"]
-    expectedOutput: ["aws-cli/2.2.41 Python/3.8.8 Linux/5.10.47-linuxkit exe/x86_64.ubuntu.20 prompt/off"]
+    expectedOutput: ["aws-cli/2.2.41*"]
