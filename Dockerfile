@@ -57,7 +57,7 @@ RUN wget https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${AWSCLI_VERSION}.
     rm -f awscli-exe-linux-x86_64-${AWSCLI_VERSION}.zip && \
     rm -rf aws && \
     # main script for side scripts
-    chmod +x ${SCRIPT_MAIN} \
+    chmod +x ${SCRIPT_MAIN}
 
 ENV GOROOT=$HOME/go
 ENV PATH=$PATH:/usr/local/go/bin:$GOROOT/bin

@@ -1,4 +1,4 @@
-- name: build-image
-  service: builder
-  command: echo "build image"
+- name: Run container structure tests
+  service: cst
+  command: test --image salvax86/tools --config test/tests.yaml
   tag: master
