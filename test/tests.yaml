@@ -1,0 +1,7 @@
+schemaVersion: "2.0.0"
+
+commandTests:
+  - name: ansible version
+    command: ansible
+    args: ["--version"]
+    expectedOutput: ["ansible 2.9.1*"]

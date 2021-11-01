@@ -1,6 +1,3 @@
 adddocker:
-  image: golang:1.8-alpine
+  image: gcr.io/gcp-runtimes/container-structure-test:latest
   add_docker: true
-  environment:
-    - GOSS_DST=~/bin
-    - GOSS_FILES_STRATEGY=cp
