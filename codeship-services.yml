@@ -1,0 +1,13 @@
+builder:
+  build:
+    image: salvax86/tools
+    context: .
+    dockerfile: Dockerfile
+  cached: true
+
+cst:
+  image: gcr.io/gcp-runtimes/container-structure-test
+  depends_on: [ "builder" ]
+  volumes:
+    - ./test/tests.yaml:/test/tests.yaml
+    - /var/run/docker.sock:/var/run/docker.sock

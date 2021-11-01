@@ -1,7 +1,7 @@
 ARG ubuntu_version
 ARG golang_version
 
-#aws cli needs linux/x86_64
+#aws cli needs linux/x86_64 if you run docker build from ARM-based server
 FROM --platform=linux/x86_64 ubuntu:focal-${ubuntu_version:-20210827}
 
 ARG ansible_version
@@ -57,7 +57,7 @@ RUN wget https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${AWSCLI_VERSION}.
     rm -f awscli-exe-linux-x86_64-${AWSCLI_VERSION}.zip && \
     rm -rf aws && \
     # main script for side scripts
-    chmod +x ${SCRIPT_MAIN} \
+    chmod +x ${SCRIPT_MAIN}
 
 ENV GOROOT=$HOME/go
 ENV PATH=$PATH:/usr/local/go/bin:$GOROOT/bin
