@@ -1,4 +1,4 @@
 - name: Run container structure tests
   service: cst
   command: test --image salvax86/tools --config test/tests.yaml
-  tag: master
+  tag: main
