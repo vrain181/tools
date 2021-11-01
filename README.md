@@ -2,6 +2,7 @@ tools
 ===
 
 [![Automated](https://img.shields.io/docker/automated/salvax86/tools.svg?style=plastic)](https://cloud.docker.com/repository/docker/salvax86/tools)
+[![Codeship Status for vrain181/tools](https://app.codeship.com/projects/1e6d8f90-db99-0137-f27e-5e8489b72046/status?branch=master)](https://app.codeship.com/projects/371433)
 
 Development Tools
 ---
