@@ -2,3 +2,11 @@
   service: cst
   command: test --image salvax86/tools --config test/tests.yaml
   tag: main
+
+- type: serial
+  name: Release docker image
+  service: release
+  steps:
+    - command: docker login -u ${DOCKER_REGISTRY_USERNAME} -p ${DOCKER_REGISTRY_PASSWORD}
+    - command: docker tag salvax86/tools:latest salvax86/tools:${CI_BRANCH}
+    - command: docker push salvax86/tools:${CI_BRANCH}
